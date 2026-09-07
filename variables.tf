@@ -5,7 +5,6 @@ variable "ami_id" {
 
 variable "instance_type" {
     type = string
-    default = "t3.micro"
 }
 
 variable "region" {
@@ -13,20 +12,20 @@ variable "region" {
     default = "us-east-1"
 }
 
-variable "ec2_tags" {
-    type = map
-    default = {
-        Name = "Linux"
-        terraform = "true"
-        Project = "Terraform"
-    }
-}
+# variable "ec2_tags" {
+#     type = map
+#     default = {
+#         Name = "Linux"
+#         terraform = "true"
+#         Project = "Terraform"
+#     }
+# }
 
 # Security group name and rules
-variable "sg_name" {
-    type = string
-    default = "my-securigy-group"
-}
+# variable "sg_name" {
+#     type = string
+#     default = "my-securigy-group"
+# }
 
 variable "ingress_from_port" {
     default = 0
