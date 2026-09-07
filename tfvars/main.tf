@@ -28,7 +28,7 @@ resource "aws_instance" "ec2_instance" {
 
         provisioner "remote-exec" {
         inline = [
-            "sudo systemctl stop nginx"
+            "sudo systemctl stop nginx",
             "echo Instances have been Destroyed..!"
         ]
         when = destroy
