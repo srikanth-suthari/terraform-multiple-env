@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2_instance" {
-    #count = 5
+    count = 5
     ami = var.ami_id
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.multi_env_sg.id]
@@ -19,7 +19,7 @@ resource "aws_instance" "ec2_instance" {
 
     provisioner "remote-exec" {
         inline = [
-            "sudo yum update -y",
+            # "sudo yum update -y",
             "sudo yum install nginx -y",
             "sudo systemctl restart nginx",
             "echo Instance has been provisioned with Nginx..!"
