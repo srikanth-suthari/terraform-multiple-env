@@ -22,8 +22,16 @@ resource "aws_instance" "ec2_instance" {
             # "sudo yum update -y",
             "sudo yum install nginx -y",
             "sudo systemctl restart nginx",
-            "echo Instance has been provisioned with Nginx..!"
+            "echo Instances have been provisioned with Nginx..!"
         ]
+    }
+
+        provisioner "remote-exec" {
+        inline = [
+            "sudo systemctl stop nginx"
+            "echo Instances have been Destroyed..!"
+        ]
+        when = destroy
     }
 }
 
