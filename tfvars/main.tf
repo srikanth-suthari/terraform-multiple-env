@@ -9,6 +9,22 @@ resource "aws_instance" "ec2_instance" {
             Name = "${local.common_name}-tfvars-multi-env-[count.index]"
         }
     )
+
+    connection {
+        user = "ec2-user"
+        host = self.public_ip
+        type = "ssh"
+        password = "DevOps321"
+    }
+
+    provisioner "remote-exec" {
+        inline = [
+            "sudo yum update -y",
+            "sudo yum install nginx -y",
+            "sudo systemctl restart nginx",
+            "echo Instance has been provisioned with Nginx..!"
+        ]
+    }
 }
 
 resource "aws_security_group" "multi_env_sg" {
