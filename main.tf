@@ -5,13 +5,13 @@ resource "aws_instance" "ec2_instance" {
     tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name}-tfvars-demo"
+            Name = "${local.common_name}-tfvars-multi-env"
         }
     )
 }
 
 resource "aws_security_group" "multi_env_sg" {
-    name = "multi-env-sg"
+    name = "${local.common_name}-tfvars-multi-env"
 
     egress {
         from_port = 0
@@ -26,4 +26,11 @@ resource "aws_security_group" "multi_env_sg" {
         protocol = "-1"
         cidr_blocks = ["0.0.0.0./0"]
     }
+
+    tags = merge(
+        local.common_tags,
+        {
+            Name = "${local.common_name}-tfvars-multi-env"
+        }
+    )
 }
