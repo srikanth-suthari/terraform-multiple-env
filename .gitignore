@@ -1,0 +1,30 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all variable files with secrets by default
+*.tfvars
+*.tfvars.json
+
+# Exclude override files (used for local changes)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control
+# !override.tf
+
+# Include microservice-specific ignore patterns if needed
+# kubeconfig
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
