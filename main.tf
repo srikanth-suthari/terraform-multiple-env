@@ -2,9 +2,12 @@ resource "aws_instance" "ec2_instance" {
     ami = var.ami_id
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.multi_env_sg.id]
-    tags = {
-        Name = "multi-env"
-    }
+    tags = merge(
+        local.common_tags,
+        {
+            Name = "${local.common_name}-tfvars-demo"
+        }
+    )
 }
 
 resource "aws_security_group" "multi_env_sg" {
