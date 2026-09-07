@@ -6,7 +6,7 @@ resource "aws_instance" "ec2_instance" {
     tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name}-tfvars-multi-env-[count.index]"
+            Name = "${local.common_name}-tfvars-multi-env"[count.index]
         }
     )
 }
