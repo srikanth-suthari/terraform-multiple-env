@@ -3,6 +3,11 @@ variable "ami_id" {
     default = "ami-0220d79f3f480ecf5"
 }
 
+variable "project" {
+    type = string
+    default = "roboshop"
+}
+
 variable "instance_type" {
     type = map
     default = {
