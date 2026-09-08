@@ -1,7 +1,7 @@
 resource "aws_instance" "ec2_instance" {
     ami = var.ami_id
     instance_type = lookup(var.instance_type, terraform.workspace)
-    vpc_security_group_ids = [aws_security_group.remote-exec-demo.id]
+    vpc_security_group_ids = [aws_security_group.workspace-demo.id]
     tags = merge(
         local.common_tags,
         {
